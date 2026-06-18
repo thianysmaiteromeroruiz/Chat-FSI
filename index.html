@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Chat FSI | Sin Internet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Barra superior con botón de menú -->
+    <div class="status-bar">
+        <button id="menuButton" class="menu-btn"><i class="fas fa-bars"></i> Menú</button>
+        <div class="time" id="liveTime">--:--</div>
+        <div class="connection-status">
+            <i class="fas fa-bluetooth-b"></i> <span id="bluetoothStatus">Apagado</span>
+            <i class="fas fa-wifi"></i> <span id="wifiStatus">Apagado</span>
+        </div>
+    </div>
+
+    <!-- Panel desplegable del menú -->
+    <div id="menuPanel" class="menu-panel" style="display: none;">
+        <div class="menu-section">
+            <h3><i class="fas fa-power-off"></i> Activar Red</h3>
+            <div class="button-group">
+                <button id="btnBluetooth" class="action-btn bluetooth-btn">
+                    <i class="fas fa-bluetooth-b"></i> Bluetooth
+                </button>
+                <button id="btnWifiDirect" class="action-btn wifi-btn">
+                    <i class="fas fa-share-alt"></i> Wi-Fi Direct
+                </button>
+                <button id="btnConnect" class="action-btn connect-btn" disabled>
+                    <i class="fas fa-link"></i> Conectar
+                </button>
+                <button id="btnDisconnect" class="action-btn disconnect-btn" disabled>
+                    <i class="fas fa-unlink"></i> Desconectar
+                </button>
+            </div>
+        </div>
+        <div class="menu-section">
+            <h3><i class="fas fa-users"></i> Dispositivos Conectados</h3>
+            <ul id="devicesList" class="devices-list">
+                <li><i class="fas fa-spinner fa-pulse"></i> Sin conexión</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Encabezado -->
+    <div class="app-header">
+        <i class="fas fa-network-wired"></i>
+        <h1>Chat FSI</h1>
+        <p>Comunicación sin Internet</p>
+    </div>
+
+    <!-- Grid de características (se mantiene, sin mención de cifrado) -->
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-project-diagram"></i>
+            <h3>Red de Malla</h3>
+            <p>Los mensajes saltan entre dispositivos sin necesidad de internet central.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Conexión Directa</h3>
+            <p>Comunicación directa entre dispositivos sin intermediarios.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-battery-full"></i>
+            <h3>Bajo Consumo</h3>
+            <p>Usa Bluetooth Low Energy para maximizar la duración de la batería.</p>
+        </div>
+    </div>
+
+    <!-- Área de Contactos y Chat -->
+    <div class="chat-main-container">
+        <!-- Lista de contactos -->
+        <div class="contacts-sidebar" id="contactsSidebar">
+            <div class="contacts-header">
+                <i class="fas fa-address-book"></i> Contactos
+                <span id="contactsCount">0</span>
+            </div>
+            <ul id="contactsList" class="contacts-list">
+                <li class="no-contacts"><i class="fas fa-plug"></i> Sin contactos</li>
+            </ul>
+        </div>
+
+        <!-- Área de chat con contacto seleccionado -->
+        <div class="chat-area" id="chatArea">
+            <div class="chat-header" id="chatHeader">
+                <i class="fas fa-user"></i> <span id="currentContactName">Selecciona un contacto</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message system-message">
+                    <i class="fas fa-plug"></i> Conéctate a la red y selecciona un contacto para chatear.
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="messageInput" class="message-input" placeholder="Escribe un mensaje..." disabled>
+                <button id="sendMessageBtn" class="send-btn" disabled>
+                    <i class="fas fa-paper-plane"></i> Enviar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón SOS -->
+    <button id="sosButton" class="sos-button">
+        <i class="fas fa-exclamation-triangle"></i> ALERTA SOS
+    </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
